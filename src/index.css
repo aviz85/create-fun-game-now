@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,6 +50,11 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Game colors */
+    --game-purple: 262 83% 74%;
+    --game-orange: 24 95% 53%;
+    --game-blue: 199 89% 48%;
   }
 
   .dark {
@@ -98,4 +104,54 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  animation: bubble-float 15s linear;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), inset 0 -10px 20px rgba(0, 0, 0, 0.1), inset 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+.bubble-pop {
+  animation: pop 0.3s ease-out;
+}
+
+@keyframes bubble-float {
+  0% {
+    transform: translateY(100vh) scale(1);
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.game-container {
+  background: linear-gradient(180deg, rgba(30, 41, 59, 1) 0%, rgba(14, 20, 32, 1) 100%);
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.hebrew-text {
+  direction: rtl;
+  font-family: Arial, sans-serif;
 }
